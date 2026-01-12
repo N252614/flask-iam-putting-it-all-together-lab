@@ -1,20 +1,16 @@
-from marshmallow import fields
-from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
-from .config import db
-from .models import User, Recipe
+from marshmallow import Schema, fields
 
-class RecipeSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = Recipe
-        load_instance = True
-        include_fk = True
 
-class UserSchema(SQLAlchemyAutoSchema):
-    # accept "password" from request, but never return it
-    password = fields.String(load_only=True)
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    username = fields.Str(required=True)
+    image_url = fields.Str(allow_none=True)
+    bio = fields.Str(allow_none=True)
 
-    class Meta:
-        model = User
-        load_instance = True
-        include_relationships = True
-        exclude = ("_password_hash",) 
+
+class RecipeSchema(Schema):
+    id = fields.Int(dump_only=True)
+    title = fields.Str(required=True)
+    instructions = fields.Str(required=True)
+    minutes_to_complete = fields.Int(required=True)
+    user_id = fields.Int(required=True)
