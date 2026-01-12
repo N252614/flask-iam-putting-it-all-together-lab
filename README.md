@@ -292,3 +292,43 @@ Optional Best Practice documentation steps:
 CodeGrade will use the same test suite as the test suite included.
 
 Once all tests are passing, commit and push your work using `git` to submit to CodeGrade through Canvas.
+
+
+
+# Flask IAM – Putting It All Together
+
+This project is a Flask application demonstrating authentication and authorization using sessions, password hashing, and protected routes.
+
+## Features
+
+- User signup with password hashing
+- Login and logout using sessions
+- Session-based authentication
+- Protected routes
+- SQLAlchemy models with validations
+- Marshmallow schemas for serialization
+
+## Technologies Used
+
+- Python
+- Flask
+- Flask-RESTful
+- Flask-SQLAlchemy
+- Flask-Bcrypt
+- Marshmallow
+- Pytest
+
+## Setup
+
+1. Install dependencies:
+```bash
+   pipenv install
+   pipenv shell
+```
+2. Run tests:
+```bash
+pytest
+```
+## Screenshot
+The screenshot below shows the application running locally with all tests passing.
+![Application Screenshot](./screenshot.png)
