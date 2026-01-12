@@ -1,0 +1,1 @@
+from server.models import db, User, Recipe  # noqa: F401
